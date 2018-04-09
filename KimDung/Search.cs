@@ -16,19 +16,27 @@ namespace Controller
         private int Len;
         private ArrayList ArrayLen;
         private int CountLine;
+        private bool Prioritize;
 
-        public Search(int Chapter, int Len)
+        public Search(int Chapter, int Len, bool Pioritize)
         {
             this.Chapter = Chapter;
             this.ArrayIndex = new ArrayList();
             this.ArrayLen = new ArrayList();
             this.Len = Len;
+            this.Prioritize = Prioritize;
         }
 
         public int CHAPTER
         {
             get { return Chapter; }
             set { Chapter = value; }
+        }
+
+        public bool PRIORITIZE
+        {
+            get { return Prioritize; }
+            set { Prioritize = value; }
         }
 
         public int COUNTLINE
@@ -57,7 +65,7 @@ namespace Controller
 
         public static Search isSearch(string input, string chapter, int numberChapter)
         {
-            Search search = new Search(-1, -1);
+            Search search = new Search(-1, -1, false);
             Regex splitChapter = new Regex("(\\w|(\\!\\.)|\\040|\\t|\\f|\\v|" + "\\" + "\"" + "|\\“|\\”|\\„|\\,|\\-|\\.{3}|\\.{2}|(\\* ){1}|(\\?\\.){1}){1,}(\\W|\\z)(\\n{0,1})");
             Regex splitInput = new Regex("\\w{1,}(\\s|\\W|\\z)");
             Regex formatInput = new Regex("\\w{1,}");
@@ -136,7 +144,7 @@ namespace Controller
                 if (check == true)
                 {
                     MessageBox.Show("Chapter " + (numberChapter + 1) + ": " + title + "\n" + item.ToString());
-                    search = new Search(numberChapter, len);
+                    search = new Search(numberChapter, len, false);
                     foreach (Match item2 in correct.Matches(item.ToString().ToUpper()))
                     {
                         search.ArrayIndex.Add(item2.Index);

@@ -13,11 +13,19 @@ namespace Controller
     {
         private string Content;
         private string Correct;
+        private bool Prioritize;
 
-        public ResultSearch(string content, string correct)
+        public ResultSearch(string content, string correct, bool Prioritize)
         {
             this.Content = content;
             this.Correct = correct;
+            this.Prioritize = Prioritize;
+        }
+
+        public bool PRIORITIZE
+        {
+            get { return Prioritize; }
+            set { Prioritize = value; }
         }
 
         public string CONTENT
@@ -34,7 +42,7 @@ namespace Controller
 
         public static ResultSearch Search(string input, string chapter, int numberChapter)
         {
-            ResultSearch resultSearch = new ResultSearch("" ,"");
+            ResultSearch resultSearch = new ResultSearch("" ,"", false);
             Regex splitChapter = new Regex("(\\w|\\040|\\t|\\f|\\v|" + "\\" + "\"" + "|\\“|\\”|\\„|\\,|\\-){1,}(\\W|\\z)");
             Regex splitInput = new Regex("\\w{1,}(\\s|\\W|\\z)");
             Regex formatInput = new Regex("\\w{1,}");
@@ -82,9 +90,32 @@ namespace Controller
 
                 if (check == true)
                 {
+                    bool isPrioritize = true;
+
+                    Regex correct = new Regex(tmp);
+                    int i = 0;
+                    foreach (Match row in correct.Matches(item.ToString().ToUpper()))
+                    {
+                        if(i == str.Length)
+                        {
+                            break;
+                        }
+
+                        if (!row.ToString().ToUpper().Contains(str[i].ToUpper()))
+                        {
+                            isPrioritize = false;
+                            break;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+
                     //MessageBox.Show("Chapter " + (numberChapter + 1) + ": " + title + "\n" + item.ToString());
                     resultSearch.Content = "Chapter " + (numberChapter + 1) + ": " + title + "\n" + item.ToString();
                     resultSearch.Correct = tmp;
+                    resultSearch.Prioritize = isPrioritize;
 
                     break;
                 }

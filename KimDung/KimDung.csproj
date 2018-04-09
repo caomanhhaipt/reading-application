@@ -115,5 +115,62 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\843.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TDDH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1356396-352-k893704.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TLBB.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LDK.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YTDLK.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LTQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BHK.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HKH.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BMKTP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PHNT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TSPH.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TKACL.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YUD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VNK.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

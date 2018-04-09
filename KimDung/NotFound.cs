@@ -19,7 +19,24 @@ namespace KimDung
 
         private void NotFound_Load(object sender, EventArgs e)
         {
-            
+            Label info = new Label();
+            info.Text = "";
+
+            info.Image = Properties.Resources.info;
+            info.Size = new Size(Properties.Resources.info.Width, Properties.Resources.info.Height);
+            info.Margin = new Padding(5, 5, 5, 5);
+
+            pnInfo.Controls.Add(info);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

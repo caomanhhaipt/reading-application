@@ -12,21 +12,21 @@ namespace KimDung
 {
     public partial class Form1 : Form
     {
-        Label lb12;
-        Label lb22;
-        Label lb32;
-        Label lb42;
-        Label lb52;
-        Label lb62;
-        Label lb72;
-        Label lb82;
-        Label lb92;
-        Label lb102;
-        Label lb112;
-        Label lb122;
-        Label lb132;
-        Label lb142;
-        Label lb152;
+        Label OverviewAHXD;
+        Label OverviewTDDH;
+        Label OverviewTNGH;
+        Label OverviewTLBB;
+        Label OverviewLDK;
+        Label OverviewYTDLK;
+        Label OverviewLTQ;
+        Label OverviewBHK;
+        Label OverviewHKH;
+        Label OverviewBMKTP;
+        Label OverviewPHNT;
+        Label OverviewTSPH;
+        Label OverviewTKACL;
+        Label OverviewUUD;
+        Label OverviewVNK;
         public Form1()
         {
             InitializeComponent();
@@ -35,338 +35,321 @@ namespace KimDung
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            NotFound notFound = new NotFound();
-            notFound.FormBorderStyle = FormBorderStyle.FixedDialog;
-            notFound.MaximizeBox = false;
-            notFound.MinimizeBox = false;
-            notFound.StartPosition = FormStartPosition.CenterScreen;
-            notFound.ShowDialog();
+            Label AHXD = new Label();
+            AHXD.Text = "";
 
-            Label lb1 = new Label();
-            lb1.Text = "";
+            AHXD.Image = Properties.Resources.AHXD;
+            AHXD.Size = new Size(Properties.Resources.AHXD.Width, Properties.Resources.AHXD.Height);
+            AHXD.Margin = new Padding(10, 10, 0, 5);
 
-            lb1.Image = Properties.Resources._843;
-            lb1.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb1.Margin = new Padding(10, 10, 0, 5);
-
-            lb12 = new Label();
-            lb12.Font = new Font("Arial", 13);
-            lb12.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewAHXD = CreateOverviewLable("Anh Hùng Xạ Điêu\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
                 "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb12.Size = new Size(600, Properties.Resources._843.Height);
-            lb12.Margin = new Padding(10, 25, 0, 5);
+                "Mô tả: Một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.");
+            OverviewAHXD.Size = new Size(600, Properties.Resources.AHXD.Height);
 
-            Label lb2 = new Label();
-            lb2.Text = "";
+            Label TDDH = new Label();
+            TDDH.Text = "";
 
-            lb2.Image = Properties.Resources._843;
-            lb2.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb2.Margin = new Padding(10, 10, 0, 5);
+            TDDH.Image = Properties.Resources.TDDH;
+            TDDH.Size = new Size(Properties.Resources.TDDH.Width, Properties.Resources.TDDH.Height);
+            TDDH.Margin = new Padding(10, 10, 0, 5);
 
-            lb22 = new Label();
-            lb22.Font = new Font("Arial", 13);
-            lb22.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewTDDH = CreateOverviewLable("Thần Điêu Đại Hiệp\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
                 "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb22.Size = new Size(600, Properties.Resources._843.Height);
-            lb22.Margin = new Padding(10, 25, 0, 5);
+                "Mô tả: Thần Điêu Đại Hiệp là phần hai trong bộ Xạ điêu tam bộ khúc, được đánh giá là tiểu thuyết võ hiệp viết về tình yêu hay nhất của Kim Dung. Bối cảnh của Thần Điêu Đại Hiệp là vào cuối thời Nam Tống, khi quân Mông Cổ đã lớn mạnh, tiêu diệt hầu hết châu Á, châu Âu, đang trực tiếp uy hiếp an nguy của Nam Tống");
+            OverviewTDDH.Size = new Size(600, Properties.Resources.TDDH.Height);
 
-            Label lb3 = new Label();
-            lb3.Text = "";
+            Label TNGH = new Label();
+            TNGH.Text = "";
 
-            lb3.Image = Properties.Resources._843;
-            lb3.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb3.Margin = new Padding(10, 10, 0, 5);
+            TNGH.Image = Properties.Resources.TNGH;
+            TNGH.Size = new Size(Properties.Resources.TNGH.Width, Properties.Resources.TNGH.Height);
+            TNGH.Margin = new Padding(10, 10, 0, 5);
 
-            lb32 = new Label();
-            lb32.Font = new Font("Arial", 13);
-            lb32.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewTNGH = CreateOverviewLable("Tiếu ngạo giang hồ\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb32.Size = new Size(600, Properties.Resources._843.Height);
-            lb32.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Nội dung bộ truyện xoay quanh những đề tài về tình bạn, tình yêu, sự dối trá, phản bội, những âm mưu và cả ham muốn quyền lực");
+            OverviewTNGH.Size = new Size(600, Properties.Resources.TNGH.Height);
 
-            Label lb4 = new Label();
-            lb4.Text = "";
+            Label TLBB = new Label();
+            TLBB.Text = "";
 
-            lb4.Image = Properties.Resources._843;
-            lb4.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb4.Margin = new Padding(10, 10, 0, 5);
+            TLBB.Image = Properties.Resources.TLBB;
+            TLBB.Size = new Size(Properties.Resources.TLBB.Width, Properties.Resources.TLBB.Height);
+            TLBB.Margin = new Padding(10, 10, 0, 5);
 
-            lb42 = new Label();
-            lb42.Font = new Font("Arial", 13);
-            lb42.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewTLBB = CreateOverviewLable("Thiên Long Bát Bộ\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb42.Size = new Size(600, Properties.Resources._843.Height);
-            lb42.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Câu chuyện xoay quanh mối quan hệ phức tạp giữa nhiều nhân vật đến từ nhiều nước khác nhau: Kiều Phong, Đoàn Dự, Hư Trúc. Với tác phẩm này, Kim Dung muốn nói đến mối quan hệ nhân - quả giữa chính bản thân các nhân vật với gia đình, xã hội, dân tộc, đất nước");
+            OverviewTLBB.Size = new Size(600, Properties.Resources.AHXD.Height);
 
-            Label lb5 = new Label();
-            lb5.Text = "";
+            Label LDK = new Label();
+            LDK.Text = "";
 
-            lb5.Image = Properties.Resources._843;
-            lb5.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb5.Margin = new Padding(10, 10, 0, 5);
+            LDK.Image = Properties.Resources.LDK;
+            LDK.Size = new Size(Properties.Resources.LDK.Width, Properties.Resources.LDK.Height);
+            LDK.Margin = new Padding(10, 10, 0, 5);
 
-            lb52 = new Label();
-            lb52.Font = new Font("Arial", 13);
-            lb52.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewLDK = CreateOverviewLable("Lộc đỉnh ký\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb52.Size = new Size(600, Properties.Resources._843.Height);
-            lb52.Margin = new Padding(10, 25, 0, 5);
-            Label lb6 = new Label();
-            lb6.Text = "";
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Câu chuyện xoay quanh một nhân vật chính có hình ảnh pha trộn giữa tốt xấu, thiện ác, đồng thời trọng tình nghĩa bạn bè, có chí hiến thân vì nước nhưng cũng tiểu nhân gian xảo, mưu mô thủ đoạn, sẵn sàng hại bạn khi cần bảo vệ lợi ích của mình tên gọi Vi Tiểu Bảo");
+            OverviewLDK.Size = new Size(600, Properties.Resources.LDK.Height);
 
-            lb6.Image = Properties.Resources._843;
-            lb6.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb6.Margin = new Padding(10, 10, 0, 5);
+            Label YTDLK = new Label();
+            YTDLK.Text = "";
 
-            lb62 = new Label();
-            lb62.Font = new Font("Arial", 13);
-            lb62.Text = "Anh Hùng Xạ Điêu\n\n" +
+            YTDLK.Image = Properties.Resources.YTDLK;
+            YTDLK.Size = new Size(Properties.Resources.YTDLK.Width, Properties.Resources.YTDLK.Height);
+            YTDLK.Margin = new Padding(10, 10, 0, 5);
+
+            OverviewYTDLK = CreateOverviewLable("Ỷ thiên đồ long ký\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb62.Size = new Size(600, Properties.Resources._843.Height);
-            lb62.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Truyện xoay quanh Trương Vô Kỵ và mối tình phức tạp với 4 cô gái, bên cạnh đó là những âm mưu thủ đoạn đầy máu tanh trên giang hồ nhằm chiếm đoạt hai món báu vật là Đồ Long đao và Ỷ Thiên kiếm, với lời đồn nếu tìm được bí mật trong đao kiếm sẽ hiệu triệu được thiên hạ");
+            OverviewYTDLK.Size = new Size(600, Properties.Resources.YTDLK.Height);
 
-            Label lb7 = new Label();
-            lb7.Text = "";
+            Label LTQ = new Label();
+            LTQ.Text = "";
 
-            lb7.Image = Properties.Resources._843;
-            lb7.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb7.Margin = new Padding(10, 10, 0, 5);
+            LTQ.Image = Properties.Resources.LTQ;
+            LTQ.Size = new Size(Properties.Resources.LTQ.Width, Properties.Resources.LTQ.Height);
+            LTQ.Margin = new Padding(10, 10, 0, 5);
 
-            lb72 = new Label();
-            lb72.Font = new Font("Arial", 13);
-            lb72.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewLTQ = CreateOverviewLable("Liên Thành Quyết\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb72.Size = new Size(600, Properties.Resources._843.Height);
-            lb72.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Nội dung truyện kể về cuộc phiêu lưu của chàng Địch Vân giữa sóng gió giang hồ, nơi đang tranh giành một bí kíp võ công cùng với một kho báu vật trị giá liên thành.");
+            OverviewLTQ.Size = new Size(600, Properties.Resources.LTQ.Height);
 
-            Label lb8 = new Label();
-            lb8.Text = "";
+            Label BHK = new Label();
+            BHK.Text = "";
 
-            lb8.Image = Properties.Resources._843;
-            lb8.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb8.Margin = new Padding(10, 10, 0, 5);
+            BHK.Image = Properties.Resources.BHK;
+            BHK.Size = new Size(Properties.Resources.BHK.Width, Properties.Resources.BHK.Height);
+            BHK.Margin = new Padding(10, 10, 0, 5);
 
-            lb82 = new Label();
-            lb82.Font = new Font("Arial", 13);
-            lb82.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewBHK = CreateOverviewLable("Bích huyết kiếm\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb82.Size = new Size(600, Properties.Resources._843.Height);
-            lb82.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Cuối đời nhà Minh, triều đình mục nát, gian thần hoành hành, dân tình thống khổ. Viên đại tướng quân bị tên thái giám gian tặc Ngụy Trung Hiền hãm hại mà thác oan. Các bộ tướng của ông hết lòng phụ tá con ông là Viên Thừa Chí , ước mong một ngày nào đó giang sơn sẽ yên bình trở lại");
+            OverviewBHK.Size = new Size(600, Properties.Resources.BHK.Height);
 
-            Label lb9 = new Label();
-            lb9.Text = "";
+            Label HKH = new Label();
+            HKH.Text = "";
 
-            lb9.Image = Properties.Resources._843;
-            lb9.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb9.Margin = new Padding(10, 10, 0, 5);
+            HKH.Image = Properties.Resources.HKH;
+            HKH.Size = new Size(Properties.Resources.HKH.Width, Properties.Resources.HKH.Height);
+            HKH.Margin = new Padding(10, 10, 0, 5);
 
-            lb92 = new Label();
-            lb92.Font = new Font("Arial", 13);
-            lb92.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewHKH = CreateOverviewLable("Hiệp khách hành\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb92.Size = new Size(600, Properties.Resources._843.Height);
-            lb92.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Câu truyện xoay quanh các cuộc phiêu lưu của Thạch Phá Thiên, xoay quanh bài thơ 'Hiệp khách hành' của thi tiên Lý Bạch. Hiệp khách hành là câu chuyện hoàn toàn không có sự liên hệ với lịch sử, với những tình tiết mang tính chất mờ ảo, thần thoại");
+            OverviewHKH.Size = new Size(600, Properties.Resources.AHXD.Height);
 
-            Label lb10 = new Label();
-            lb10.Text = "";
+            Label BMKTP = new Label();
+            BMKTP.Text = "";
 
-            lb10.Image = Properties.Resources._843;
-            lb10.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb10.Margin = new Padding(10, 10, 0, 5);
+            BMKTP.Image = Properties.Resources.BMKTP;
+            BMKTP.Size = new Size(Properties.Resources.BMKTP.Width, Properties.Resources.BMKTP.Height);
+            BMKTP.Margin = new Padding(10, 10, 0, 5);
 
-            lb102 = new Label();
-            lb102.Font = new Font("Arial", 13);
-            lb102.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewBMKTP = CreateOverviewLable("Bạch mã khiếu tây phong\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb102.Size = new Size(600, Properties.Resources._843.Height);
-            lb102.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Câu chuyện nói về hành trình lưu lạc của Lý Văn Tú, con gái của Bạch Mã Lý Tam và Kim Ngân Tiểu Kiếm Tam Nương Tử (Thượng Quan Hồng)");
+            OverviewBMKTP.Size = new Size(600, Properties.Resources.BMKTP.Height);
 
-            Label lb11 = new Label();
-            lb11.Text = "";
+            Label PHNT = new Label();
+            PHNT.Text = "";
 
-            lb11.Image = Properties.Resources._843;
-            lb11.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb11.Margin = new Padding(10, 10, 0, 5);
+            PHNT.Image = Properties.Resources.PHNT;
+            PHNT.Size = new Size(Properties.Resources.PHNT.Width, Properties.Resources.PHNT.Height);
+            PHNT.Margin = new Padding(10, 10, 0, 5);
 
-            lb112 = new Label();
-            lb112.Font = new Font("Arial", 13);
-            lb112.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewPHNT = CreateOverviewLable("Phi hổ ngoại truyện\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb112.Size = new Size(600, Properties.Resources._843.Height);
-            lb112.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Với những tình tiết gây cấn Phi hồ ngoại truyện đấu trí giữ các thế lực lớn trong giang hồ tranh đoạt địa vị");
+            OverviewPHNT.Size = new Size(600, Properties.Resources.PHNT.Height);
 
-            Label lb120 = new Label();
-            lb120.Text = "";
+            Label TSPH = new Label();
+            TSPH.Text = "";
 
-            lb120.Image = Properties.Resources._843;
-            lb120.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb120.Margin = new Padding(10, 10, 0, 5);
+            TSPH.Image = Properties.Resources.TSPH;
+            TSPH.Size = new Size(Properties.Resources.TSPH.Width, Properties.Resources.TSPH.Height);
+            TSPH.Margin = new Padding(10, 10, 0, 5);
 
-            lb122 = new Label();
-            lb122.Font = new Font("Arial", 13);
-            lb122.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewTSPH = CreateOverviewLable("Tuyết sơn phi hồ\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb122.Size = new Size(600, Properties.Resources._843.Height);
-            lb122.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Diễn biến chính của tiểu thuyết này diễn ra vào thời đại nhà Thanh dưới triều vua Càn Long, nhưng các tình tiết câu chuyện lại được kéo dài từ thời đại nhà Đại Thuận dưới triều Lý Tự Thành, và bắt đầu của nhà Thanh dưới lời kể của một số nhân vật");
+            OverviewTSPH.Size = new Size(600, Properties.Resources.TSPH.Height);
 
-            Label lb13 = new Label();
-            lb13.Text = "";
+            Label TKACL = new Label();
+            TKACL.Text = "";
 
-            lb13.Image = Properties.Resources._843;
-            lb13.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb13.Margin = new Padding(10, 10, 0, 5);
+            TKACL.Image = Properties.Resources.TKACL;
+            TKACL.Size = new Size(Properties.Resources.TKACL.Width, Properties.Resources.TKACL.Height);
+            TKACL.Margin = new Padding(10, 10, 0, 5);
 
-            lb132 = new Label();
-            lb132.Font = new Font("Arial", 13);
-            lb132.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewTKACL = CreateOverviewLable("Thư kiếm ân cừu lục\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb132.Size = new Size(600, Properties.Resources._843.Height);
-            lb132.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Tình tiết của truyện xoay quanh cuộc phiêu liêu giải cứu Văn Thái Lai, mà qua đó, Trần gia Lạc tình cờ gặp gỡ rồi ra tay giúp một bộ lạc người Hồi truy nã đoàn xe của Trấn Viễn tiêu cục, đoạt lại thánh vật là bộ kinh Koran");
+            OverviewTKACL.Size = new Size(600, Properties.Resources.AHXD.Height);
 
-            Label lb14 = new Label();
-            lb14.Text = "";
+            Label UUD = new Label();
+            UUD.Text = "";
 
-            lb14.Image = Properties.Resources._843;
-            lb14.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb14.Margin = new Padding(10, 10, 0, 5);
+            UUD.Image = Properties.Resources.UUD;
+            UUD.Size = new Size(Properties.Resources.UUD.Width, Properties.Resources.UUD.Height);
+            UUD.Margin = new Padding(10, 10, 0, 5);
 
-            lb142 = new Label();
-            lb142.Font = new Font("Arial", 13);
-            lb142.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewUUD = CreateOverviewLable("Uyên ương đao\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb142.Size = new Size(600, Properties.Resources._843.Height);
-            lb142.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Uyên Ương Ðao là một cặp đao báu, ai chiếm được Uyên Ương Đao có thể xưng bá võ lâm. Là một trong mười bốn tuyệt tác của Kim Dung nhưng truyện rất ngắn, chỉ có ý nghĩa đối với bản thân tác giả, vì đây là tác phẩm đầu đời của ông");
+            OverviewUUD.Size = new Size(600, Properties.Resources.UUD.Height);
 
-            Label lb15 = new Label();
-            lb15.Text = "";
+            Label VNK = new Label();
+            VNK.Text = "";
 
-            lb15.Image = Properties.Resources._843;
-            lb15.Size = new Size(Properties.Resources._843.Width, Properties.Resources._843.Height);
-            lb15.Margin = new Padding(10, 10, 0, 5);
+            VNK.Image = Properties.Resources.VNK;
+            VNK.Size = new Size(Properties.Resources.VNK.Width, Properties.Resources.VNK.Height);
+            VNK.Margin = new Padding(10, 10, 0, 5);
 
-            lb152 = new Label();
-            lb152.Font = new Font("Arial", 13);
-            lb152.Text = "Anh Hùng Xạ Điêu\n\n" +
+            OverviewVNK = CreateOverviewLable("Việt nữ kiếm\n\n" +
                 "Tác giả: Kim Dung\n\n" +
                 "Thể loại: Kiếm Hiệp\n\n" +
-                "Tình trạng: Full\n\n" +
-                "Mô tả: một trong những tiểu thuyết võ hiệp của Kim Dung được đánh giá cao, được Hương Cảng Thương Báo xuất bản năm 1957. Đây là tiểu thuyết đầu tiên của Xạ Điêu Tam Bộ Khúc. Kim Dung đã chỉnh sửa tất cả các tác phẩm của mình bao gồm tiểu thuyết này vào những năm 1970 và một lần nữa vào những năm 2000.";
-            lb152.Size = new Size(600, Properties.Resources._843.Height);
-            lb52.Margin = new Padding(10, 25, 0, 5);
+                "Tình trạng: Đang cập nhật\n\n" +
+                "Mô tả: Câu chuyện xảy ra vào thời Chiến Quốc, sau khi Việt vương Câu Tiễn bại trận trước Ngô vương Phù Sai. Câu Tiễn thi hành chín chính sách diệt Ngô của Văn Chủng.");
+            OverviewVNK.Size = new Size(600, Properties.Resources.VNK.Height);
 
 
-            pnl1.Controls.Add(lb1);
-            pnl1.Controls.Add(lb12);
+            pnl1.Controls.Add(AHXD);
+            pnl1.Controls.Add(OverviewAHXD);
 
-            pnl1.Controls.Add(lb2);
-            pnl1.Controls.Add(lb22);
+            pnl1.Controls.Add(TDDH);
+            pnl1.Controls.Add(OverviewTDDH);
 
-            pnl1.Controls.Add(lb3);
-            pnl1.Controls.Add(lb32);
+            pnl1.Controls.Add(TNGH);
+            pnl1.Controls.Add(OverviewTNGH);
 
-            pnl1.Controls.Add(lb4);
-            pnl1.Controls.Add(lb42);
+            pnl1.Controls.Add(TLBB);
+            pnl1.Controls.Add(OverviewTLBB);
 
-            pnl1.Controls.Add(lb5);
-            pnl1.Controls.Add(lb52);
+            pnl1.Controls.Add(LDK);
+            pnl1.Controls.Add(OverviewLDK);
 
-            pnl1.Controls.Add(lb6);
-            pnl1.Controls.Add(lb62);
+            pnl1.Controls.Add(YTDLK);
+            pnl1.Controls.Add(OverviewYTDLK);
 
-            pnl1.Controls.Add(lb7);
-            pnl1.Controls.Add(lb72);
+            pnl1.Controls.Add(LTQ);
+            pnl1.Controls.Add(OverviewLTQ);
 
-            pnl1.Controls.Add(lb8);
-            pnl1.Controls.Add(lb82);
+            pnl1.Controls.Add(BHK);
+            pnl1.Controls.Add(OverviewBHK);
 
-            pnl1.Controls.Add(lb9);
-            pnl1.Controls.Add(lb92);
+            pnl1.Controls.Add(HKH);
+            pnl1.Controls.Add(OverviewHKH);
 
-            pnl1.Controls.Add(lb10);
-            pnl1.Controls.Add(lb102);
+            pnl1.Controls.Add(BMKTP);
+            pnl1.Controls.Add(OverviewBMKTP);
 
-            pnl1.Controls.Add(lb11);
-            pnl1.Controls.Add(lb112);
+            pnl1.Controls.Add(PHNT);
+            pnl1.Controls.Add(OverviewPHNT);
 
-            pnl1.Controls.Add(lb120);
-            pnl1.Controls.Add(lb122);
+            pnl1.Controls.Add(TSPH);
+            pnl1.Controls.Add(OverviewTSPH);
 
-            pnl1.Controls.Add(lb13);
-            pnl1.Controls.Add(lb132);
+            pnl1.Controls.Add(TKACL);
+            pnl1.Controls.Add(OverviewTKACL);
 
-            pnl1.Controls.Add(lb14);
-            pnl1.Controls.Add(lb142);
+            pnl1.Controls.Add(UUD);
+            pnl1.Controls.Add(OverviewUUD);
 
-            pnl1.Controls.Add(lb15);
-            pnl1.Controls.Add(lb152);
+            pnl1.Controls.Add(VNK);
+            pnl1.Controls.Add(OverviewVNK);
 
-            lb1.Click += new EventHandler(lb1_Click);
+            AHXD.Click += new EventHandler(AHXD_Click);
+            TDDH.Click += new EventHandler(TDDH_Click);
+            //TNGH.Click += new EventHandler(TNGH_Click);
+            //TLBB.Click += new EventHandler(TLBB_Click);
+            //LDK.Click += new EventHandler(LDK_Click);
+            //YTDLK.Click += new EventHandler(YTDLK_Click);
+            //LTQ.Click += new EventHandler(LTQ_Click);
+        }
+
+        private Label CreateOverviewLable(string overview)
+        {
+            Label label = new Label();
+
+            label.Font = new Font("Arial", 13);
+            label.Text = overview;
+            //label.Size = new Size(600, Properties.Resources.name.Height);
+            label.Margin = new Padding(10, 25, 0, 5);
+
+            return label;
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
-            lb12.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb22.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb32.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb42.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb52.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb62.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb72.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb82.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb92.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb102.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb112.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb122.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb132.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb142.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
-            lb152.Size = new Size(this.Width - 300, Properties.Resources._843.Height);
+            OverviewAHXD.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewTDDH.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewTNGH.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewTLBB.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewLDK.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewYTDLK.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewLTQ.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewBHK.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewHKH.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewBMKTP.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewPHNT.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewTSPH.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewTKACL.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewUUD.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
+            OverviewVNK.Size = new Size(this.Width - 300, Properties.Resources.AHXD.Height);
         }
 
-        private void lb1_Click(object sender, EventArgs e)
+        private void AHXD_Click(object sender, EventArgs e)
         {
-            Form2 Contain = new Form2(1);
+            Form2 Contain = new Form2(1, "Anh Hùng Xạ Điêu");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void TDDH_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(2, "Thần Điêu Đại Hiệp");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void TNGH_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(3, "Tiếu Ngạo Giang Hồ");
             this.Hide();
             Contain.ShowDialog();
             this.Show();

@@ -31,11 +31,11 @@
             this.contain = new System.Windows.Forms.FlowLayoutPanel();
             this.containIndex = new System.Windows.Forms.FlowLayoutPanel();
             this.containSearchError = new System.Windows.Forms.Panel();
+            this.nameBook = new System.Windows.Forms.Label();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.containSearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.checkError = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.checkError = new System.Windows.Forms.Button();
             this.containSearchError.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             // containSearchError
             // 
             this.containSearchError.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.containSearchError.Controls.Add(this.label1);
+            this.containSearchError.Controls.Add(this.nameBook);
             this.containSearchError.Controls.Add(this.btnSearch);
             this.containSearchError.Controls.Add(this.checkError);
             this.containSearchError.Controls.Add(this.tbSearch);
@@ -70,9 +70,19 @@
             this.containSearchError.Size = new System.Drawing.Size(921, 57);
             this.containSearchError.TabIndex = 2;
             // 
+            // nameBook
+            // 
+            this.nameBook.AutoSize = true;
+            this.nameBook.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameBook.Location = new System.Drawing.Point(3, 19);
+            this.nameBook.Name = "nameBook";
+            this.nameBook.Size = new System.Drawing.Size(146, 19);
+            this.nameBook.TabIndex = 3;
+            this.nameBook.Text = "Anh hùng xạ điêu";
+            // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(303, 3);
+            this.tbSearch.Location = new System.Drawing.Point(256, 3);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(363, 51);
@@ -88,37 +98,33 @@
             this.containSearch.Size = new System.Drawing.Size(199, 607);
             this.containSearch.TabIndex = 0;
             // 
-            // checkError
-            // 
-            this.checkError.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkError.Location = new System.Drawing.Point(802, 0);
-            this.checkError.Name = "checkError";
-            this.checkError.Size = new System.Drawing.Size(119, 57);
-            this.checkError.TabIndex = 1;
-            this.checkError.Text = "Kiểm tra lỗi";
-            this.checkError.UseVisualStyleBackColor = true;
-            this.checkError.Click += new System.EventHandler(this.checkError_Click);
-            // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(672, 0);
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnSearch.ImageKey = "(none)";
+            this.btnSearch.Location = new System.Drawing.Point(625, 0);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(97, 56);
-            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Size = new System.Drawing.Size(136, 56);
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label1
+            // checkError
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Anh hùng xạ điêu";
+            this.checkError.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkError.Image = global::KimDung.Properties.Resources.bug;
+            this.checkError.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.checkError.Location = new System.Drawing.Point(767, 0);
+            this.checkError.Name = "checkError";
+            this.checkError.Size = new System.Drawing.Size(154, 57);
+            this.checkError.TabIndex = 1;
+            this.checkError.Text = "Kiểm tra lỗi";
+            this.checkError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkError.UseVisualStyleBackColor = true;
+            this.checkError.Click += new System.EventHandler(this.checkError_Click);
             // 
             // Form2
             // 
@@ -151,6 +157,6 @@
         private System.Windows.Forms.FlowLayoutPanel containSearch;
         private System.Windows.Forms.Button checkError;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label nameBook;
     }
 }

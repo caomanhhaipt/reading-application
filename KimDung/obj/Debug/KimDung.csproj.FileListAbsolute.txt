@@ -10,3 +10,14 @@ D:\DotNet\KimDung\KimDung\obj\Debug\KimDung.pdb
 D:\DotNet\KimDung\KimDung\obj\Debug\KimDung.Form2.resources
 D:\DotNet\KimDung\KimDung\obj\Debug\KimDung.csprojResolveAssemblyReference.cache
 D:\DotNet\KimDung\KimDung\obj\Debug\KimDung.NotFound.resources
+D:\DotNet\BTL-.Net\KimDung\bin\Debug\KimDung.exe.config
+D:\DotNet\BTL-.Net\KimDung\bin\Debug\KimDung.exe
+D:\DotNet\BTL-.Net\KimDung\bin\Debug\KimDung.pdb
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.Form1.resources
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.Form2.resources
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.NotFound.resources
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.Properties.Resources.resources
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.csproj.GenerateResource.Cache
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.csproj.CoreCompileInputs.cache
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.exe
+D:\DotNet\BTL-.Net\KimDung\obj\Debug\KimDung.pdb
