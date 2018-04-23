@@ -31,12 +31,12 @@
             this.contain = new System.Windows.Forms.FlowLayoutPanel();
             this.containIndex = new System.Windows.Forms.FlowLayoutPanel();
             this.containSearchError = new System.Windows.Forms.Panel();
+            this.btnSetting = new System.Windows.Forms.Button();
             this.nameBook = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.checkError = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.containSearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnSetting = new System.Windows.Forms.Button();
-            this.checkError = new System.Windows.Forms.Button();
             this.containSearchError.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,20 @@
             this.containSearchError.Size = new System.Drawing.Size(1141, 57);
             this.containSearchError.TabIndex = 2;
             // 
+            // btnSetting
+            // 
+            this.btnSetting.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.Image = global::KimDung.Properties.Resources.setting;
+            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSetting.Location = new System.Drawing.Point(1003, 0);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(138, 57);
+            this.btnSetting.TabIndex = 0;
+            this.btnSetting.Text = "Cài đặt";
+            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSetting.UseVisualStyleBackColor = true;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
             // nameBook
             // 
             this.nameBook.AutoSize = true;
@@ -97,6 +111,20 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // checkError
+            // 
+            this.checkError.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkError.Image = global::KimDung.Properties.Resources.bug;
+            this.checkError.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.checkError.Location = new System.Drawing.Point(806, 0);
+            this.checkError.Name = "checkError";
+            this.checkError.Size = new System.Drawing.Size(154, 57);
+            this.checkError.TabIndex = 1;
+            this.checkError.Text = "Kiểm tra lỗi";
+            this.checkError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkError.UseVisualStyleBackColor = true;
+            this.checkError.Click += new System.EventHandler(this.checkError_Click);
+            // 
             // tbSearch
             // 
             this.tbSearch.Location = new System.Drawing.Point(256, 3);
@@ -114,34 +142,6 @@
             this.containSearch.Name = "containSearch";
             this.containSearch.Size = new System.Drawing.Size(199, 607);
             this.containSearch.TabIndex = 0;
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetting.Image = global::KimDung.Properties.Resources.setting;
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(1003, 0);
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(138, 57);
-            this.btnSetting.TabIndex = 0;
-            this.btnSetting.Text = "Cài đặt";
-            this.btnSetting.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSetting.UseVisualStyleBackColor = true;
-            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // checkError
-            // 
-            this.checkError.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkError.Image = global::KimDung.Properties.Resources.bug;
-            this.checkError.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.checkError.Location = new System.Drawing.Point(806, 0);
-            this.checkError.Name = "checkError";
-            this.checkError.Size = new System.Drawing.Size(154, 57);
-            this.checkError.TabIndex = 1;
-            this.checkError.Text = "Kiểm tra lỗi";
-            this.checkError.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkError.UseVisualStyleBackColor = true;
-            this.checkError.Click += new System.EventHandler(this.checkError_Click);
             // 
             // Form2
             // 

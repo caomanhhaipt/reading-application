@@ -12,8 +12,19 @@ namespace KimDung
 {
     public partial class Notification : Form
     {
+        private string Info;
+        private string Guide;
         public Notification()
         {
+            this.Info = "";
+            this.Guide = "";
+            InitializeComponent();
+        }
+
+        public Notification(string info, string guide)
+        {
+            this.Info = info;
+            this.Guide = guide;
             InitializeComponent();
         }
 
@@ -25,6 +36,15 @@ namespace KimDung
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Notification_Load(object sender, EventArgs e)
+        {
+            if (!Info.Equals(""))
+            {
+                lbInfo.Text = Info;
+                lbGuide.Text = Guide;
+            }
         }
     }
 }

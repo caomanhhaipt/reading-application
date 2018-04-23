@@ -75,7 +75,6 @@ namespace Controller
             }
             tmp += ")";
 
-            string title = "";
             foreach (Match item in splitChapter.Matches(chapter))
             {
                 bool check = true;
@@ -113,7 +112,7 @@ namespace Controller
                     }
 
                     //MessageBox.Show("Chapter " + (numberChapter + 1) + ": " + title + "\n" + item.ToString());
-                    resultSearch.Content = "Chapter " + (numberChapter + 1) + ": " + title + "\n" + item.ToString();
+                    resultSearch.Content = item.ToString();
                     resultSearch.Correct = tmp;
                     resultSearch.Prioritize = isPrioritize;
 

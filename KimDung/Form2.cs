@@ -8,6 +8,7 @@ using System.Threading;
 using Controller;
 using System.Text.RegularExpressions;
 using Model;
+using WMPLib;
 
 namespace KimDung
 {
@@ -23,9 +24,12 @@ namespace KimDung
         ArrayList containResult;
         ArrayList containError;
         Label[] setting;
+        Label[] listBookMark;
         private string backColor;
         private string color;
         private bool isMenu;
+        Label[] deleteBookMark;
+        WMPLib.WindowsMediaPlayer wplayer;
 
         public Form2(int Id, string Name)
         {
@@ -46,7 +50,7 @@ namespace KimDung
 
             string sql = "SELECT * FROM CHAPTER WHERE id_book = " + Id;
 
-            SqlCommand sqlCmd = new SqlCommand(sql, conn);
+            //SqlCommand sqlCmd = new SqlCommand(sql, conn);
 
             SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
             DataTable dt = new DataTable();
@@ -85,6 +89,7 @@ namespace KimDung
             mark[0] = true;
             containChapter[0] = new RichTextBox();
             containChapter[0] = CreateContainChapter(listContent[0], listTitle[0]);
+            containChapter[0].Name = "1";
 
             contain.Controls.Add(containChapter[0]);
 
@@ -111,6 +116,20 @@ namespace KimDung
             nameBook.Text = this.NameBook;
         }
 
+        private void BookMark(object sender, MouseEventArgs e)
+        {
+            string text = ((RichTextBox)sender).SelectedText;
+
+            if (text.Length != 0)
+            {
+                BookMark bookmark = new BookMark(Int32.Parse(((RichTextBox)sender).Name), text, this.ID);
+                bookmark.FormBorderStyle = FormBorderStyle.FixedDialog;
+                bookmark.MaximizeBox = false;
+                bookmark.StartPosition = FormStartPosition.CenterScreen;
+                bookmark.ShowDialog();
+            }
+        }
+
         private void title_MouseClick(object sender, MouseEventArgs e)
         {
             Label label = (Label)sender;
@@ -134,6 +153,7 @@ namespace KimDung
             {
                 containChapter[index] = new RichTextBox();
                 containChapter[index] = CreateContainChapter(listContent[index], listTitle[index]);
+                containChapter[index].Name = (index + 1).ToString();
                 contain.Controls.Add(containChapter[index]);
                 mark[index] = true;
             }
@@ -183,6 +203,7 @@ namespace KimDung
                     {
                         containChapter[currentChapter + 1] = new RichTextBox();
                         containChapter[currentChapter + 1] = CreateContainChapter(listContent[currentChapter + 1], listTitle[currentChapter + 1]);
+                        containChapter[currentChapter + 1].Name = (currentChapter + 2).ToString();
                         contain.Controls.Add(containChapter[currentChapter + 1]);
                         mark[currentChapter + 1] = true;
                     }
@@ -225,6 +246,7 @@ namespace KimDung
                     {
                         containChapter[currentChapter - 1] = new RichTextBox();
                         containChapter[currentChapter - 1] = CreateContainChapter(listContent[currentChapter - 1], listTitle[currentChapter - 1]);
+                        containChapter[currentChapter - 1].Name = (currentChapter).ToString();
                         contain.Controls.Add(containChapter[currentChapter - 1]);
                     }
 
@@ -294,6 +316,7 @@ namespace KimDung
                             {
                                 containChapter[currentChapter - 1] = new RichTextBox();
                                 containChapter[currentChapter - 1] = CreateContainChapter(listContent[currentChapter - 1], listTitle[currentChapter - 1]);
+                                containChapter[currentChapter - 1].Name = (currentChapter).ToString();
                                 contain.Controls.Add(containChapter[currentChapter - 1]);
                             }
                             else
@@ -349,6 +372,15 @@ namespace KimDung
             RichTextBox returnContain = new RichTextBox();
             returnContain.ContentsResized += new ContentsResizedEventHandler(RichTextBox_ContentsResized);
             returnContain.MouseWheel += new MouseEventHandler(chapter_MouseWhell);
+
+            if(setting != null)
+            {
+                if (setting[8].Text.Equals("Tắt BookMark"))
+                {
+                    returnContain.MouseUp += BookMark;
+                }
+            }
+
             returnContain.Font = new Font("Arial", 13);
             returnContain.Width = contain.Width - 40;
 
@@ -523,6 +555,7 @@ namespace KimDung
                         {
                             containChapter[i] = new RichTextBox();
                             containChapter[i] = CreateContainChapter(listContent[i], listTitle[i]);
+                            containChapter[i].Name = (i + 1).ToString();
                         }
 
                         RuleController ruleController = RuleController.IsError(containChapter[i].Text, i);
@@ -637,15 +670,44 @@ namespace KimDung
         {
             ResultSearch search = new ResultSearch("", "", false);
             containSearch.Controls.Clear();
+            if(containResult != null)
+            {
+                for(int i = 0; i < containResult.Count; i++)
+                {
+                    ((RichTextBox)containResult[i]).ContentsResized -= RichTextBox_ContentsResized;
+                    ((RichTextBox)containResult[i]).MouseWheel -= Search_MouseWhell;
+                }
+            }
+
             containResult = new ArrayList();
 
             bool mark = false;
+
+            if (listBookMark != null)
+            {
+                for (int i = 0; i < listBookMark.Length; i++)
+                {
+                    if(listBookMark[i] == null)
+                    {
+                        break;
+                    }
+
+                    listBookMark[i].MouseClick -= FindResult;
+                    listBookMark[i].MouseMove -= title_MouseMove;
+                    listBookMark[i].MouseLeave -= title_MouseLeave;
+                }
+            }
+
+            listBookMark = new Label[listTitle.Length];
+            int indexList = 0;
+
             for (int index = 0; index < listTitle.Length; index++)
             {
                 if (containChapter[index] == null)
                 {
                     containChapter[index] = new RichTextBox();
                     containChapter[index] = CreateContainChapter(listContent[index], listTitle[index]);
+                    containChapter[index].Name = (index + 1).ToString();
                 }
 
                 search = ResultSearch.Search(tbSearch.Text, containChapter[index].Text, index);
@@ -665,8 +727,8 @@ namespace KimDung
                     }
 
                     RichTextBox result = new RichTextBox();
-                    result.ContentsResized += new ContentsResizedEventHandler(RichTextBox_ContentsResized);
-                    result.MouseWheel += new MouseEventHandler(Search_MouseWhell);
+                    result.ContentsResized += RichTextBox_ContentsResized;
+                    result.MouseWheel += Search_MouseWhell;
                     result.Font = new Font("Arial", 13);
                     result.Width = containSearch.Width - 30;
 
@@ -683,8 +745,20 @@ namespace KimDung
                         result.SelectionFont = new Font("Arial", 13, FontStyle.Bold);
                     }
 
+                    listBookMark[indexList] = new Label();
+                    listBookMark[indexList].Text = "Chapter " + (index + 1);
+                    listBookMark[indexList].Name = search.CONTENT;
+                    listBookMark[indexList].Width = containSearch.Width - 20;
+                    listBookMark[indexList].Margin = new Padding(5, 5, 5, 5);
+                    listBookMark[indexList].Font = new Font("Arial", 11, FontStyle.Bold);
+                    listBookMark[indexList].MouseClick += FindResult;
+                    listBookMark[indexList].MouseMove += title_MouseMove;
+                    listBookMark[indexList].MouseLeave += title_MouseLeave;
+
                     containResult.Add(result);
+                    containSearch.Controls.Add(listBookMark[indexList]);
                     containSearch.Controls.Add(result);
+                    indexList++;
                 }
             }
 
@@ -694,6 +768,7 @@ namespace KimDung
                 {
                     containChapter[index] = new RichTextBox();
                     containChapter[index] = CreateContainChapter(listContent[index], listTitle[index]);
+                    containChapter[index].Name = (index + 1).ToString();
                 }
 
                 search = ResultSearch.Search(tbSearch.Text, containChapter[index].Text, index);
@@ -731,8 +806,21 @@ namespace KimDung
                         result.SelectionFont = new Font("Arial", 13, FontStyle.Bold);
                     }
 
+                    listBookMark[indexList] = new Label();
+                    listBookMark[indexList].Text = "Chapter " + (index + 1);
+                    listBookMark[indexList].Name = search.CONTENT;
+                    listBookMark[indexList].Width = containSearch.Width - 20;
+                    listBookMark[indexList].Margin = new Padding(5, 5, 5, 5);
+                    listBookMark[indexList].Font = new Font("Arial", 11, FontStyle.Bold);
+                    listBookMark[indexList].MouseClick += FindResult;
+                    listBookMark[indexList].MouseMove += title_MouseMove;
+                    listBookMark[indexList].MouseLeave += title_MouseLeave;
+
                     containResult.Add(result);
+                    containSearch.Controls.Add(listBookMark[indexList]);
                     containSearch.Controls.Add(result);
+
+                    indexList++;
                 }
             }
 
@@ -749,7 +837,7 @@ namespace KimDung
 
                 if (setting == null)
                 {
-                    setting = new Label[8];
+                    setting = new Label[11];
 
                     setting[0] = new Label();
                     setting[0].Text = "Màu nền";
@@ -819,6 +907,33 @@ namespace KimDung
                     setting[7].MouseClick += new MouseEventHandler(HideMenu);
                     setting[7].MouseMove += new MouseEventHandler(title_MouseMove);
                     setting[7].MouseLeave += new EventHandler(title_MouseLeave);
+
+                    setting[8] = new Label();
+                    setting[8].Text = "Bật BookMark";
+                    setting[8].Width = containSearch.Width - 20;
+                    setting[8].Margin = new Padding(5, 5, 5, 5);
+                    setting[8].Font = new Font("Arial", 11, FontStyle.Bold);
+                    setting[8].MouseClick += new MouseEventHandler(CheckBookMark);
+                    setting[8].MouseMove += new MouseEventHandler(title_MouseMove);
+                    setting[8].MouseLeave += new EventHandler(title_MouseLeave);
+
+                    setting[9] = new Label();
+                    setting[9].Text = "Danh sách BookMark";
+                    setting[9].Width = containSearch.Width - 20;
+                    setting[9].Margin = new Padding(5, 5, 5, 5);
+                    setting[9].Font = new Font("Arial", 11, FontStyle.Bold);
+                    setting[9].MouseClick += new MouseEventHandler(ListBookMark);
+                    setting[9].MouseMove += new MouseEventHandler(title_MouseMove);
+                    setting[9].MouseLeave += new EventHandler(title_MouseLeave);
+
+                    setting[10] = new Label();
+                    setting[10].Text = "Phát nhạc phim";
+                    setting[10].Width = containSearch.Width - 20;
+                    setting[10].Margin = new Padding(5, 5, 5, 5);
+                    setting[10].Font = new Font("Arial", 11, FontStyle.Bold);
+                    setting[10].MouseClick += new MouseEventHandler(PlayMp3);
+                    setting[10].MouseMove += new MouseEventHandler(title_MouseMove);
+                    setting[10].MouseLeave += new EventHandler(title_MouseLeave);
                 }
 
                 for (int i = 0; i < setting.Length; i++)
@@ -848,6 +963,342 @@ namespace KimDung
 
                 isMenu = true;
                 btnSetting.Text = "Cài đặt";
+            }
+        }
+
+        private void ListBookMark()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-BT9KKC7;Initial Catalog=TruyenKimDung;Integrated Security=True");
+                conn.Open();
+
+                string sql = "SELECT * FROM BOOKMARK WHERE id_book = " + Id;
+
+                SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                int countBookMark = 0;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    countBookMark++;
+                }
+
+                if (countBookMark == 0)
+                {
+                    Notification notification = new Notification("Danh sách rỗng", "Vui lòng thêm đánh dấu");
+                    notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    notification.MaximizeBox = false;
+                    notification.MinimizeBox = false;
+                    notification.StartPosition = FormStartPosition.CenterScreen;
+                    notification.ShowDialog();
+                    return;
+                }
+
+                if (deleteBookMark != null)
+                {
+                    for (int i = 0; i < deleteBookMark.Length; i++)
+                    {
+                        deleteBookMark[i].MouseClick -= DeleteBookMark;
+                        deleteBookMark[i].MouseMove -= title_MouseMove;
+                        deleteBookMark[i].MouseLeave -= title_MouseLeave;
+                    }
+                }
+
+                if (listBookMark != null)
+                {
+                    for (int i = 0; i < listBookMark.Length; i++)
+                    {
+                        if (listBookMark[i] == null)
+                        {
+                            break;
+                        }
+
+                        listBookMark[i].MouseClick -= FindResult;
+                        listBookMark[i].MouseMove -= title_MouseMove;
+                        listBookMark[i].MouseLeave -= title_MouseLeave;
+                    }
+                }
+
+                if (containResult != null)
+                {
+                    for (int i = 0; i < containResult.Count; i++)
+                    {
+                        ((RichTextBox)containResult[i]).ContentsResized -= RichTextBox_ContentsResized;
+                        ((RichTextBox)containResult[i]).MouseWheel -= Search_MouseWhell;
+                    }
+                }
+
+                containResult = new ArrayList();
+
+                listBookMark = new Label[countBookMark];
+                deleteBookMark = new Label[countBookMark];
+                int index = 0;
+
+                containSearch.Controls.Clear();
+                foreach (DataRow row in dt.Rows)
+                {
+                    listBookMark[index] = new Label();
+                    listBookMark[index].Text = "Chapter " + row["chapter"].ToString();
+                    listBookMark[index].Name = row["content"].ToString();
+                    listBookMark[index].Width = containSearch.Width - 20;
+                    listBookMark[index].Margin = new Padding(5, 5, 5, 5);
+                    listBookMark[index].Font = new Font("Arial", 11, FontStyle.Bold);
+                    listBookMark[index].MouseClick += FindResult;
+                    listBookMark[index].MouseMove += title_MouseMove;
+                    listBookMark[index].MouseLeave += title_MouseLeave;
+
+                    RichTextBox result = new RichTextBox();
+                    result.ContentsResized += RichTextBox_ContentsResized;
+                    result.MouseWheel += Search_MouseWhell;
+                    result.Font = new Font("Arial", 13);
+                    result.Width = containSearch.Width - 30;
+
+                    result.Text = row["content"].ToString();
+                    result.BackColor = Color.White;
+                    result.ScrollBars = RichTextBoxScrollBars.None;
+                    result.ReadOnly = true;
+                    result.BorderStyle = BorderStyle.None;
+
+                    containResult.Add(result);
+
+                    deleteBookMark[index] = new Label();
+                    deleteBookMark[index].Text = "Delete";
+                    deleteBookMark[index].Name = row["id"].ToString();
+                    deleteBookMark[index].Width = containSearch.Width - 20;
+                    deleteBookMark[index].Margin = new Padding(5, 5, 5, 5);
+                    deleteBookMark[index].Font = new Font("Arial", 11, FontStyle.Italic);
+                    deleteBookMark[index].MouseClick += DeleteBookMark;
+                    deleteBookMark[index].MouseMove += title_MouseMove;
+                    deleteBookMark[index].MouseLeave += title_MouseLeave;
+
+                    containSearch.Controls.Add(listBookMark[index]);
+                    containSearch.Controls.Add(result);
+                    containSearch.Controls.Add(deleteBookMark[index]);
+
+                    index++;
+                }
+            }
+            catch (Exception)
+            {
+                Notification notification = new Notification("Yêu cầu không thành công", "Xin vui lòng thử lại sau");
+                notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                notification.MaximizeBox = false;
+                notification.MinimizeBox = false;
+                notification.StartPosition = FormStartPosition.CenterScreen;
+                notification.ShowDialog();
+            }
+        }
+
+        private void PlayMp3(object sender, MouseEventArgs e)
+        {
+            if(((Label)sender).Text.Equals("Phát nhạc phim"))
+            {
+                try
+                {
+                    if(wplayer == null)
+                    {
+                        wplayer = new WMPLib.WindowsMediaPlayer();
+                        string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+
+                        String tmp = "";
+                        for (int i = 0; i < path.Length - 9; i++)
+                        {
+                            tmp += path[i];
+                        }
+                        tmp += @"Resources\" + this.NameBook + ".mp3";
+
+                        wplayer.URL = tmp;
+                    }
+   
+                    wplayer.controls.play();
+                    wplayer.settings.autoStart = true;
+                    wplayer.settings.setMode("loop", true);
+
+                    setting[10].Text = "Dừng nhạc phim";
+                }
+                catch (Exception)
+                {
+                    Notification notification = new Notification("Lỗi âm thanh", "Xin vui lòng thử lại");
+                    notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    notification.MaximizeBox = false;
+                    notification.MinimizeBox = false;
+                    notification.StartPosition = FormStartPosition.CenterScreen;
+                    notification.ShowDialog();
+                }
+            }
+            else
+            {
+                try
+                {
+                    wplayer.controls.stop();
+                    setting[10].Text = "Phát nhạc phim";
+                }
+                catch (Exception) {
+                    Notification notification = new Notification("Lỗi âm thanh", "Xin vui lòng thử lại");
+                    notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    notification.MaximizeBox = false;
+                    notification.MinimizeBox = false;
+                    notification.StartPosition = FormStartPosition.CenterScreen;
+                    notification.ShowDialog();
+                }
+            }
+        }
+
+        private void ListBookMark(object sender, MouseEventArgs e)
+        {
+            ListBookMark();
+        }
+
+        private void DeleteBookMark(object sender, MouseEventArgs e)
+        {
+            var confirm = MessageBox.Show("Bạn chắc chắn muốn xóa BookMark?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+
+            if(confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-BT9KKC7;Initial Catalog=TruyenKimDung;Integrated Security=True");
+                    conn.Open();
+
+                    string sql = "DELETE FROM BOOKMARK WHERE id = " + Int32.Parse(((Label)sender).Name);
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    var isDelete = cmd.ExecuteNonQuery();
+
+                    if(isDelete > 0)
+                    {
+                        Notification notification = new Notification("Xóa thành công", "Đã cập nhật lại danh sách");
+                        notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                        notification.MaximizeBox = false;
+                        notification.MinimizeBox = false;
+                        notification.StartPosition = FormStartPosition.CenterScreen;
+                        notification.ShowDialog();
+
+                        ListBookMark();
+                    }
+                    else
+                    {
+                        Notification notification = new Notification("Yêu cầu không thành công", "Xin vui lòng thử lại sau");
+                        notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                        notification.MaximizeBox = false;
+                        notification.MinimizeBox = false;
+                        notification.StartPosition = FormStartPosition.CenterScreen;
+                        notification.ShowDialog();
+                    }
+                }
+                catch (Exception)
+                {
+                    Notification notification = new Notification("Yêu cầu không thành công", "Xin vui lòng thử lại sau");
+                    notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    notification.MaximizeBox = false;
+                    notification.MinimizeBox = false;
+                    notification.StartPosition = FormStartPosition.CenterScreen;
+                    notification.ShowDialog();
+                }
+            }
+        }
+        private void FindResult(object sender, MouseEventArgs e)
+        {
+            Label label = (Label)sender;
+
+            int index = 0;
+            for (int i = 0; i < listTitle.Length; i++)
+            {
+                if (label.Text.Equals("Chapter " + (i + 1)))
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            contain.Controls.Clear();
+            for (int i = 0; i < mark.Length; i++)
+            {
+                mark[i] = false;
+            }
+            if (containChapter[index] == null)
+            {
+                containChapter[index] = new RichTextBox();
+                containChapter[index] = CreateContainChapter(listContent[index], listTitle[index]);
+                containChapter[index].Name = (index + 1).ToString();
+            }
+
+            mark[index] = true;
+
+            String tmp = "";
+            for (int i = 0; i < label.Name.Length; i++)
+            {
+                tmp += label.Name[i];
+                if (i == label.Name.Length - 5)
+                {
+                    break;
+                }
+            }
+            int line = containChapter[index].GetLineFromCharIndex(containChapter[index].Find(tmp));
+
+            contain.Controls.Add(containChapter[index]);
+
+            containChapter[index].SelectionStart = containChapter[index].Find(tmp);
+            containChapter[index].Select();
+
+            Thread findResult = new Thread(() => FindAndScroll(line));
+            findResult.Start();
+        }
+
+        private void FindAndScroll(int line)
+        {
+            try
+            {
+                contain.VerticalScroll.Value = 0;
+                contain.VerticalScroll.Value += (int)(line * 18.8);
+                contain.VerticalScroll.Value += (int)(line * 18.8);
+            }
+            catch (Exception) {}
+        }
+
+        private void CheckBookMark(object sender, MouseEventArgs e)
+        {
+            Label label = (Label)sender;
+
+            if(label.Text.Equals("Bật BookMark"))
+            {
+                setting[8].Text = "Tắt BookMark";
+                for(int i = 0; i < containChapter.Length; i++)
+                {
+                    if(containChapter[i] != null)
+                    {
+                        containChapter[i].MouseUp += BookMark;
+                    }
+                }
+
+                Notification notification = new Notification("Đã bật chế độ BookMark"
+                    ,"Bôi đen đoạn văn cần đánh dấu");
+                notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                notification.MaximizeBox = false;
+                notification.MinimizeBox = false;
+                notification.StartPosition = FormStartPosition.CenterScreen;
+                notification.ShowDialog();
+            }
+            else
+            {
+                setting[8].Text = "Bật BookMark";
+                for (int i = 0; i < containChapter.Length; i++)
+                {
+                    if (containChapter[i] != null)
+                    {
+                        containChapter[i].MouseUp -= BookMark;
+                    }
+                }
+
+                Notification notification = new Notification("Đã tắt chế độ BookMark"
+                    , "Đánh dấu vui lòng bật BookMark");
+                notification.FormBorderStyle = FormBorderStyle.FixedDialog;
+                notification.MaximizeBox = false;
+                notification.MinimizeBox = false;
+                notification.StartPosition = FormStartPosition.CenterScreen;
+                notification.ShowDialog();
             }
         }
 
