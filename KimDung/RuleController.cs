@@ -46,7 +46,7 @@ namespace Controller
             RuleController ruleController = new RuleController(-1);
 
             Rule[] allRules = new Rule[]{new Rule1(), new Rule2(), new Rule3(), new Rule4(),
-            new Rule5(), new Rule6(), new Rule7()};
+            new Rule5(), new Rule6(), new Rule7(), new Rule8()};
 
             Regex splitChapter = new Regex("(\\w|\\040|\\t|\\f|\\v|" + "\\" + "\"" + "|\\“|\\”|\\„|\\,|\\-){1,}(\\W|\\z)");
             Regex splitWord = new Regex("\\“{0,}(\\w{1,}|\\.{3}|\\.{2})\\”{0,}(\\s{1,}|(\\W\\s{0,})|\\z)");
