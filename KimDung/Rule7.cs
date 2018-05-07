@@ -23,8 +23,8 @@ namespace Controller
 
         public override void Explain()
         {
-            Console.WriteLine("Từ tiếng việt, các ký tự chữ không được phép đi "
-               + "liền với các ký tự khác chữ (trừ các dấu ở cuối mỗi từ)");
+            Console.WriteLine("Một từ tiếng việt, các ký tự chữ không được phép đi "
+               + "liền với các ký tự khác chữ (trừ các dấu câu ở cuối của từ)");
         }
     }
 }

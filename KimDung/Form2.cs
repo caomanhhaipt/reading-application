@@ -607,6 +607,7 @@ namespace KimDung
                 }
                 else
                 {
+                    containSearch.Controls.Clear();
                     for (int i = 0; i < containError.Count; i++)
                     {
                         containResult.Add(containError[i]);
