@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.contain = new System.Windows.Forms.FlowLayoutPanel();
             this.containIndex = new System.Windows.Forms.FlowLayoutPanel();
             this.containSearchError = new System.Windows.Forms.Panel();
@@ -37,6 +38,7 @@
             this.checkError = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.containSearch = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.containSearchError.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +65,7 @@
             // containSearchError
             // 
             this.containSearchError.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.containSearchError.Controls.Add(this.button1);
             this.containSearchError.Controls.Add(this.btnSetting);
             this.containSearchError.Controls.Add(this.nameBook);
             this.containSearchError.Controls.Add(this.btnSearch);
@@ -91,7 +94,7 @@
             // 
             this.nameBook.AutoSize = true;
             this.nameBook.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameBook.Location = new System.Drawing.Point(3, 19);
+            this.nameBook.Location = new System.Drawing.Point(68, 19);
             this.nameBook.Name = "nameBook";
             this.nameBook.Size = new System.Drawing.Size(146, 19);
             this.nameBook.TabIndex = 3;
@@ -102,7 +105,7 @@
             this.btnSearch.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnSearch.ImageKey = "(none)";
-            this.btnSearch.Location = new System.Drawing.Point(625, 0);
+            this.btnSearch.Location = new System.Drawing.Point(664, 0);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(136, 56);
             this.btnSearch.TabIndex = 1;
@@ -127,7 +130,7 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(256, 3);
+            this.tbSearch.Location = new System.Drawing.Point(295, 3);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(363, 51);
@@ -142,6 +145,17 @@
             this.containSearch.Name = "containSearch";
             this.containSearch.Size = new System.Drawing.Size(199, 607);
             this.containSearch.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 57);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
@@ -176,5 +190,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label nameBook;
         private System.Windows.Forms.Button btnSetting;
+        private System.Windows.Forms.Button button1;
     }
 }
