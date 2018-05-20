@@ -1420,5 +1420,15 @@ namespace KimDung
                 color = "black";
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //private void label1_Click_1(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
