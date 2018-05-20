@@ -291,13 +291,63 @@ namespace KimDung
             pnl1.Controls.Add(VNK);
             pnl1.Controls.Add(OverviewVNK);
 
+            AHXD.MouseMove += Book_MouseMove;
+            AHXD.MouseLeave += Book_MouseLeave;
+
+            TDDH.MouseMove += Book_MouseMove;
+            TDDH.MouseLeave += Book_MouseLeave;
+
+            TLBB.MouseMove += Book_MouseMove;
+            TLBB.MouseLeave += Book_MouseLeave;
+
+            LDK.MouseMove += Book_MouseMove;
+            LDK.MouseLeave += Book_MouseLeave;
+
+            YTDLK.MouseMove += Book_MouseMove;
+            YTDLK.MouseLeave += Book_MouseLeave;
+
+            LTQ.MouseMove += Book_MouseMove;
+            LTQ.MouseLeave += Book_MouseLeave;
+
+            BHK.MouseMove += Book_MouseMove;
+            BHK.MouseLeave += Book_MouseLeave;
+
+            HKH.MouseMove += Book_MouseMove;
+            HKH.MouseLeave += Book_MouseLeave;
+
+            BMKTP.MouseMove += Book_MouseMove;
+            BMKTP.MouseLeave += Book_MouseLeave;
+
+            PHNT.MouseMove += Book_MouseMove;
+            PHNT.MouseLeave += Book_MouseLeave;
+
+            TSPH.MouseMove += Book_MouseMove;
+            TSPH.MouseLeave += Book_MouseLeave;
+
+            TKACL.MouseMove += Book_MouseMove;
+            TKACL.MouseLeave += Book_MouseLeave;
+
+            UUD.MouseMove += Book_MouseMove;
+            UUD.MouseLeave += Book_MouseLeave;
+
+            VNK.MouseMove += Book_MouseMove;
+            VNK.MouseLeave += Book_MouseLeave;
+
             AHXD.Click += new EventHandler(AHXD_Click);
             TDDH.Click += new EventHandler(TDDH_Click);
             //TNGH.Click += new EventHandler(TNGH_Click);
-            //TLBB.Click += new EventHandler(TLBB_Click);
-            //LDK.Click += new EventHandler(LDK_Click);
-            //YTDLK.Click += new EventHandler(YTDLK_Click);
-            //LTQ.Click += new EventHandler(LTQ_Click);
+            TLBB.Click += new EventHandler(TLBB_Click);
+            LDK.Click += new EventHandler(LDK_Click);
+            YTDLK.Click += new EventHandler(YTDLK_Click);
+            LTQ.Click += new EventHandler(LTQ_Click);
+            BHK.Click += new EventHandler(BHK_Click);
+            HKH.Click += new EventHandler(HKH_Click);
+            BMKTP.Click += new EventHandler(BMKTP_Click);
+            PHNT.Click += new EventHandler(PHNT_Click);
+            TSPH.Click += new EventHandler(TSPH_Click);
+            TKACL.Click += new EventHandler(TKACL_Click);
+            UUD.Click += new EventHandler(UUD_Click);
+            VNK.Click += new EventHandler(VNK_Click);
         }
 
         private Label CreateOverviewLable(string overview)
@@ -339,6 +389,14 @@ namespace KimDung
             this.Show();
         }
 
+        private void TLBB_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(3, "Thiên Long Bát Bộ");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
         private void TDDH_Click(object sender, EventArgs e)
         {
             Form2 Contain = new Form2(2, "Thần Điêu Đại Hiệp");
@@ -347,12 +405,109 @@ namespace KimDung
             this.Show();
         }
 
-        private void TNGH_Click(object sender, EventArgs e)
+        private void LDK_Click(object sender, EventArgs e)
         {
-            Form2 Contain = new Form2(3, "Tiếu Ngạo Giang Hồ");
+            Form2 Contain = new Form2(6, "Lộc Đỉnh Ký");
             this.Hide();
             Contain.ShowDialog();
             this.Show();
+        }
+
+        private void YTDLK_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(10, "Ỷ Thiên Đồ Long Ký");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void LTQ_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(11, "Liên Thành Quyết");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void BHK_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(8, "Bích Huyết Kiếm");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void HKH_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(13, "Hiệp Khách Hành");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void BMKTP_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(9, "Bạch Mã Khiếu Tây Phong");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void PHNT_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(14, "Phi Hổ Ngoại Truyện");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void TSPH_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(7, "Tuyết Sơn Phi Hồ");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void TKACL_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(12, "Thư Kiếm Ân Cừu Lục");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void UUD_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(5, "Uyên Ương Đao");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+
+        private void VNK_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(4, "Việt Nữ Kiếm");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
+        //private void TNGH_Click(object sender, EventArgs e)
+        //{
+        //    Form2 Contain = new Form2(3, "Tiếu Ngạo Giang Hồ");
+        //    this.Hide();
+        //    Contain.ShowDialog();
+        //    this.Show();
+        //}
+
+        private void Book_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void Book_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
         }
     }
 }
