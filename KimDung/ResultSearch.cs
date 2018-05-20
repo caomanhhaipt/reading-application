@@ -43,7 +43,7 @@ namespace Controller
         public static ResultSearch Search(string input, string chapter, int numberChapter)
         {
             ResultSearch resultSearch = new ResultSearch("" ,"", false);
-            Regex splitChapter = new Regex("(\\w|\\040|\\t|\\f|\\v|" + "\\" + "\"" + "|\\“|\\”|\\„|\\,|\\-){1,}(\\W|\\z)");
+            Regex splitChapter = new Regex("(\\w|\\040|\\t|\\f|\\v|" + "\\" + " \"" + "|\\“|\\”|\\.|\\„|\\,|\\-){1,}(\\W|\\z)");
             Regex splitInput = new Regex("\\w{1,}(\\s|\\W|\\z)");
             Regex formatInput = new Regex("\\w{1,}");
 
