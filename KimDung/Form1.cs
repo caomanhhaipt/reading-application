@@ -333,9 +333,12 @@ namespace KimDung
             VNK.MouseMove += Book_MouseMove;
             VNK.MouseLeave += Book_MouseLeave;
 
+            TNGH.MouseMove += Book_MouseMove;
+            TNGH.MouseLeave += Book_MouseLeave;
+
             AHXD.Click += new EventHandler(AHXD_Click);
             TDDH.Click += new EventHandler(TDDH_Click);
-            //TNGH.Click += new EventHandler(TNGH_Click);
+            TNGH.Click += new EventHandler(TNGH_Click);
             TLBB.Click += new EventHandler(TLBB_Click);
             LDK.Click += new EventHandler(LDK_Click);
             YTDLK.Click += new EventHandler(YTDLK_Click);
@@ -492,13 +495,13 @@ namespace KimDung
             Contain.ShowDialog();
             this.Show();
         }
-        //private void TNGH_Click(object sender, EventArgs e)
-        //{
-        //    Form2 Contain = new Form2(3, "Tiếu Ngạo Giang Hồ");
-        //    this.Hide();
-        //    Contain.ShowDialog();
-        //    this.Show();
-        //}
+        private void TNGH_Click(object sender, EventArgs e)
+        {
+            Form2 Contain = new Form2(3, "Tiếu Ngạo Giang Hồ");
+            this.Hide();
+            Contain.ShowDialog();
+            this.Show();
+        }
 
         private void Book_MouseMove(object sender, MouseEventArgs e)
         {
