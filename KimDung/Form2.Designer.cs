@@ -32,13 +32,13 @@
             this.contain = new System.Windows.Forms.FlowLayoutPanel();
             this.containIndex = new System.Windows.Forms.FlowLayoutPanel();
             this.containSearchError = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.nameBook = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.checkError = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.containSearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.containSearchError.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,17 @@
             this.containSearchError.Name = "containSearchError";
             this.containSearchError.Size = new System.Drawing.Size(1141, 57);
             this.containSearchError.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(62, 57);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSetting
             // 
@@ -146,17 +157,6 @@
             this.containSearch.Size = new System.Drawing.Size(199, 607);
             this.containSearch.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 57);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +171,7 @@
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.SizeChanged += new System.EventHandler(this.Form2_SizeChanged);
             this.containSearchError.ResumeLayout(false);

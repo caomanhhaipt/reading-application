@@ -1423,7 +1423,21 @@ namespace KimDung
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                wplayer.controls.stop();
+            }catch(Exception){}
+
             this.Close();
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                wplayer.controls.stop();
+            }
+            catch (Exception) { }
         }
 
         //private void label1_Click_1(object sender, EventArgs e)
