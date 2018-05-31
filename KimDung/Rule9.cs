@@ -32,7 +32,7 @@ namespace Controller
 
         public override void Explain()
         {
-            Console.WriteLine("Một từ tiếng việt có tối đa 5 nguyên âm");
+            Console.WriteLine("Một từ tiếng việt có tối đa 5 phụ âm");
         }
     }
 }
