@@ -1,2 +1,2 @@
-# BTL-.Net
-Ứng dụng đọc truyện Kim Dung
+# Reading Application
+Reading application of book's Kim Dung using C# language
